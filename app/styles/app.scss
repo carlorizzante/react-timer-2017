@@ -1,0 +1,16 @@
+$text-colot: #333;
+$background-color: black;
+
+body {
+  background-color: lighten($background-color, 20%);
+  color: $text-colot;
+}
+
+#main-nav,
+#main-nav li {
+  background-color: lighten($background-color, 10%);
+}
+
+a.current {
+  border-bottom: 2px solid teal;
+}
