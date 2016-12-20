@@ -1,7 +1,11 @@
 const React = require("react");
 
+const Clock = require("./Clock");
+
 const Countdown = props => (
-  <h1>Countdown</h1>
+  <div id="timer">
+    <Clock time={100}/>
+  </div>
 );
 
 module.exports = Countdown;

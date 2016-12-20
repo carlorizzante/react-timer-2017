@@ -1,0 +1,16 @@
+#clock {
+  margin: 20% auto;
+  width: $clock-size;
+  height: $clock-size;
+  border-radius: $clock-size;
+  border: $clock-border-thickness solid $clock-border-color;
+  text-align: center;
+  background-color: $clock-background-color;
+}
+
+.clock-content {
+  margin: 32% auto;
+  width: 90%;
+  text-align: center;
+  font-size: 3rem;
+}
