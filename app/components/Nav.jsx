@@ -6,7 +6,7 @@ const Nav = props => (
     <div className="top-bar-left">
       <ul className="menu">
         <li className="site-title"><IndexLink to="/">React Timer</IndexLink></li>
-        <li><Link to="/timer" activeClassName="current">Timer</Link></li>
+        <li><IndexLink to="/" activeClassName="current">Timer</IndexLink></li>
         <li><Link to="/countdown" activeClassName="current">Countdown</Link></li>
       </ul>
     </div>
