@@ -73,6 +73,7 @@ const Countdown = React.createClass({
     }
     return (
       <div id="countdown">
+        <h3 className="page-title text-center">Countdown App</h3>
         <Clock time={time}/>
         {renderControls()}
       </div>
