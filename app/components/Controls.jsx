@@ -2,30 +2,33 @@ const React = require("react");
 
 const Controls = React.createClass({
   propTypes: {
-    timer_status: React.PropTypes.string.isRequired
+    timer_status: React.PropTypes.string.isRequired,
+    updateStatus: React.PropTypes.func.isRequired
+  },
+  updateStatus: function(status) {
+    return () => {
+      this.props.updateStatus(status);
+    }
   },
   render: function() {
     const { timer_status } = this.props;
-    // console.log("timer_status is", timer_status);
     const renderBtn = () => {
       switch (timer_status) {
-        case "running":
-          // console.log("rendering pause btn");
-          return <button id="control-pause-btn" className="button expanded">Pause</button>;
+        case "run":
+          return <button id="control-pause-btn" className="button expanded" onClick={this.updateStatus("pause")}>Pause</button>;
           break;
-        case "paused":
-          // console.log("rendering start btn");
-          return <button id="control-start-btn" className="button expanded">Start</button>;
+        case "pause":
+          return <button id="control-start-btn" className="button expanded" onClick={this.updateStatus("run")}>Start</button>;
           break;
       }
     }
     return (
       <div id="controls" className="row">
-        <div className="columns small-8 small-centered">
+        <div className="columns small-6 small-centered">
           {renderBtn()}
         </div>
-        <div className="columns small-8 small-centered">
-          <button id="control-clear-btn" className="button alert hollow expanded">Clear</button>
+        <div className="columns small-6 small-centered">
+          <button id="control-clear-btn" className="button alert expanded" onClick={this.updateStatus("stop")}>Clear</button>
         </div>
       </div>
     );

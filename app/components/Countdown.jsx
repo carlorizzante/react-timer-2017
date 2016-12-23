@@ -8,41 +8,73 @@ const Countdown = React.createClass({
   getInitialState: function() {
     return {
       time: 0,
-      timer_status: "stopped"
+      timer_status: "stop"
     }
   },
   componentWillUnmount: function() {
     clearTimeout(this.timer);
   },
+  componentDidUpdate: function(prevProps, prevState) {
+    if (this.state.timer_status == prevState.timer_status) return;
+    const { time, timer_status } = this.state;
+    switch (timer_status) {
+      case "run":
+        this.count(time);
+        break;
+      case "pause":
+        clearTimeout(this.timer);
+        break;
+      case "stop":
+        clearTimeout(this.timer);
+        this.setState({
+          time: 0
+        });
+        break;
+    }
+  },
   handleSetCountdown: function(time) {
     this.setState({
       time: time,
-      timer_status: "running"
+      timer_status: "run"
     });
-    // console.log("Countdown started!");
-    this.count(time);
+  },
+  handleStatusChange: function(status) {
+    this.setState({
+      timer_status: status
+    });
   },
   count: function(time) {
+    const { timer_status } = this.state;
     if (time >= 0) {
       this.setState({
         time: time
       });
-      // console.log("Counting...", time);
       this.timer = setTimeout(() => this.count(time - 1), 1000);
     } else {
       this.setState({
-        timer_status: "stopped"
+        timer_status: "stop"
       });
-      // console.log("Countdown stopped!");
     }
   },
   render: function () {
     const { time, timer_status } = this.state;
+    const renderControls = () => {
+      const { timer_status } = this.state;
+      switch (timer_status) {
+        case "stop":
+          return <CountdownForm onSetCountdown={this.handleSetCountdown}/>;
+          break;
+        case "run":
+        case "pause":
+          return <Controls timer_status={timer_status} updateStatus={this.handleStatusChange}/>;
+          break;
+        default:
+      }
+    }
     return (
       <div id="countdown">
         <Clock time={time}/>
-        <CountdownForm onSetCountdown={this.handleSetCountdown}/>
-        <Controls timer_status={timer_status}/>
+        {renderControls()}
       </div>
     );
   }
