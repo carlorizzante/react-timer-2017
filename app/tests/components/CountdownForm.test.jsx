@@ -12,7 +12,7 @@ describe("CountdownForm", () => {
   });
 
   describe("render", () => {
-    it("should render Countdownform component", () => {
+    it("should render CountdownForm component", () => {
       const countdownForm = TestUtils.renderIntoDocument(<CountdownForm onSetCountdown={() => null}/>);
       const $el = $(ReactDOM.findDOMNode(countdownForm));
       const form_time = $el.find("#form-time");
