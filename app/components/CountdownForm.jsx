@@ -15,7 +15,7 @@ const CountdownForm = React.createClass({
   },
   render: function() {
     return (
-      <div id="countdown-controls">
+      <div id="countdown-form">
         <form ref="form" onSubmit={this.onSubmit}>
           <div className="row">
             <div className="columns small-8 small-centered">
