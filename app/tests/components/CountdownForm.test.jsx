@@ -15,7 +15,7 @@ describe("CountdownForm", () => {
     it("should render CountdownForm component", () => {
       const countdownForm = TestUtils.renderIntoDocument(<CountdownForm onSetCountdown={() => null}/>);
       const $el = $(ReactDOM.findDOMNode(countdownForm));
-      const form_time = $el.find("#form-time");
+      const form_time = $el.find("#countdown-form");
       const form_btn_start = $el.find("#form-btn-start");
       expect(form_time).toExist();
       expect(form_btn_start).toExist();

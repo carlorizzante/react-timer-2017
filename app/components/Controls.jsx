@@ -18,7 +18,8 @@ const Controls = React.createClass({
           return <button id="control-pause-btn" className="button expanded" onClick={this.updateStatus("pause")}>Pause</button>;
           break;
         case "pause":
-          return <button id="control-start-btn" className="button expanded" onClick={this.updateStatus("run")}>Start</button>;
+        case "stop":
+          return <button id="control-start-btn" className="button expanded" onClick={this.updateStatus("run")}>Start!</button>;
           break;
       }
     }
