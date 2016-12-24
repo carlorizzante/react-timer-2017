@@ -8,7 +8,7 @@ const Countdown = require("./components/Countdown");
 const About = require("./components/About");
 
 // Load Foundation css
-require("style!css!foundation-sites/dist/css/foundation.min.css");
+// require("style!css!foundation-sites/dist/css/foundation.min.css");
 $(document).foundation();
 
 // Load css

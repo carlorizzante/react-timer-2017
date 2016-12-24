@@ -1,4 +1,12 @@
-@import "variables";
-@import "base";
-@import "navigation";
-@import "clock";
+// Foundation
+@import "_foundation-settings";
+@import "foundation";
+@include foundation-everything;
+
+// Config
+@import "_variables";
+
+// App
+@import "_base";
+@import "_navigation";
+@import "_clock";
